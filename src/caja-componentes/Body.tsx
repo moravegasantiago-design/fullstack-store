@@ -1,8 +1,8 @@
 import { ShoppingCart, Heart } from "lucide-react";
-import type { ReactNode } from "react";
-import GetDiccinary from "@/utils/Diccionary/GetDiccionary.ts";
-import type { ProductType } from "src/App.tsx";
-import { SistemStar } from "@/utils/ProductLogic.tsx"
+import { type Dispatch, type ReactNode, type SetStateAction } from "react";
+import GetDiccinary from "@/utils/Diccionary/GetDiccionary";
+import type { ProductType } from "src/App";
+import { SistemStar } from "@/utils/ProductLogic";
 type BodyProps = {
   Title: ReactNode;
   Nav: ReactNode;
@@ -45,9 +45,13 @@ export const Title = (props: TitleProps) => {
 
 type NavProps = {
   listProduct: ProductType[];
+  SetProductFilter : Dispatch<SetStateAction<ProductType[]>>;
+  SetOption: Dispatch<SetStateAction<string>>;
+  option ?: string;
+  
 };
 export const Nav = (props: NavProps) => {
-  const { listProduct } = props;
+  const { listProduct, SetOption, SetProductFilter } = props;
   const listCategory = [...new Set(listProduct.flatMap((p) => p.categoria))];
   return (
     <>
@@ -55,6 +59,11 @@ export const Nav = (props: NavProps) => {
         <button
           className="px-6 py-3 font-medium text-blue-600 border-b-2 border-blue-600 whitespace-nowrap"
           key={i}
+          onClick={() => {
+            SetOption(p);
+            const FilterList = listProduct.filter((product) => product.categoria === p);
+            SetProductFilter([...FilterList]);
+          }}
         >
           {p}
         </button>
@@ -69,7 +78,7 @@ type ProductProps = {
 export const CardProduct = (props: ProductProps) => {
   const { listProduct } = props;
   return listProduct.map((p) => {
-    const listOfStar = SistemStar({rating : p.rating});
+    const listOfStar = SistemStar({ rating: p.rating });
     return (
       <div
         className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group"

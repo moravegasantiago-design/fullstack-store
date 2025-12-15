@@ -28,3 +28,4 @@ export const SistemStar = (props: StarProps) => {
   }
   return listOfStar;
 };
+

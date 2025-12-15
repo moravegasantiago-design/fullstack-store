@@ -21,35 +21,44 @@ export type ProductType = {
   favorite?: boolean;
 };
 const App = () => {
-   const [product, SetProduct] = useState<ProductType[]>([]);
-   useEffect(() => {
-     const dataFetch = async () => {
-       try {
-         const re = await fetch("data/product.json");
-         const data = await re.json();
-         SetProduct(data);
-       } catch (err) {
-         console.error(err);
-       }
-     };
-     dataFetch();
-   }, []);
-   return (
-     <>
-       <Header
-         inputDesklop={<SearchDesklop />}
-         inputMovil={<SearchMovil />}
-         Buttons={<BtnAccion />}
-       />
-       <Body
-         Title={<Title option="Audio" />}
-         Nav={<Nav listProduct={product} SetFuncion={SetProduct} />}
-         CardProduct={
-           <CardProduct listProduct={product} SetFuncion={SetProduct} />
-         }
-       />
-       <Footer />
-     </>
-   );
+  const [ProductFilter, SetProductFilter] = useState<ProductType[]>([]);
+  const [product, SetProduct] = useState<ProductType[]>([]);
+  const [option, SetOption] = useState("");
+
+  useEffect(() => {
+    const dataFetch = async () => {
+      try {
+        const re = await fetch("data/product.json");
+        const data = await re.json();
+        SetProduct(data);
+        SetProductFilter(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    dataFetch();
+  }, []);
+  return (
+    <>
+      <Header
+        inputDesklop={<SearchDesklop />}
+        inputMovil={<SearchMovil />}
+        Buttons={<BtnAccion />}
+      />
+      <Body
+        Title={<Title option={option} />}
+        Nav={
+          <Nav
+            listProduct={product}
+            SetOption={SetOption}
+            SetProductFilter={SetProductFilter}
+            option={option}
+          />
+        }
+        CardProduct={<CardProduct listProduct={ProductFilter} />}
+      />
+      <Footer />
+    </>
+  );
 };
 export default App;
