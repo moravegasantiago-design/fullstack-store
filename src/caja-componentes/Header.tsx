@@ -1,12 +1,22 @@
 import { ShoppingCart, Heart, Search, Menu, User } from "lucide-react";
-import type { ReactNode } from "react";
+import { useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
+import { type ProductType } from "@/App";
+import CartSlider, {
+  CardFooterCart,
+  CardHeaderCart,
+  CardItemsCart,
+}  from "./CardSlider";
 type HeaderProps = {
   inputDesklop : ReactNode;
   inputMovil : ReactNode;
-  Buttons : ReactNode;
+  Buttons : (props : {CartShop: ProductType[], SetCartEvent : Dispatch<SetStateAction<boolean>>}
+  ) => ReactNode;
+  CartShop : ProductType[];
+  SetCartShop : Dispatch<SetStateAction<ProductType[]>>
 }
 const Header = (props: HeaderProps) => {
-  const {inputDesklop, inputMovil, Buttons} = props;
+  const {inputDesklop, inputMovil, Buttons, CartShop, SetCartShop} = props;
+  const [CartEvent, SetCartEvent] = useState(false);
   return (
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,11 +30,17 @@ const Header = (props: HeaderProps) => {
 
           <div className="hidden md:flex flex-1 max-w-md mx-8">{inputDesklop}</div>
 
-          <div className="flex items-center gap-2">{Buttons}</div>
+          <div className="flex items-center gap-2">{Buttons({CartShop, SetCartEvent})}</div>
         </div>
 
         <div className="md:hidden pb-4">{inputMovil}</div>
       </div>
+      <CartSlider
+        CartEvent = {CartEvent}
+        CardFooterCart={<CardFooterCart CartShop={CartShop}/>}
+        CardItemsCart={<CardItemsCart CartShop = {CartShop} SetCartShop={SetCartShop}/>}
+        CardHeaderCart={<CardHeaderCart SetCartEvent={SetCartEvent}/>}
+      />
     </>
   );
 };
@@ -54,7 +70,12 @@ export const SearchMovil = () => {
   );
 };
 
-export const BtnAccion = () => {
+type BtnProps = {
+  CartShop : ProductType[];
+  SetCartEvent : Dispatch<SetStateAction<boolean>>
+}
+export const BtnAccion = (props : BtnProps) => {
+  const { CartShop, SetCartEvent } = props;
   return (
     <>
       <button className="p-2 hover:bg-gray-100 rounded-lg relative">
@@ -64,10 +85,10 @@ export const BtnAccion = () => {
         </span>
       </button>
 
-      <button className="p-2 hover:bg-gray-100 rounded-lg relative">
+      <button className="p-2 hover:bg-gray-100 rounded-lg relative" onClick={() => SetCartEvent(true)}>
         <ShoppingCart className="h-6 w-6 text-gray-700" />
-        <span className="absolute -top-1 -right-1 bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-semibold">
-          5
+        <span className={`absolute -top-1 -right-1 bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-semibold ${CartShop.length ? "" : "hidden"}`}>
+          {CartShop.length ?? 0}
         </span>
       </button>
 
@@ -77,4 +98,5 @@ export const BtnAccion = () => {
     </>
   );
 };
+
 export default Header;

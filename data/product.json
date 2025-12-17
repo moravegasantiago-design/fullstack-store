@@ -2,8 +2,8 @@
   {
     "ref": "PROD-001",
     "nombre": "Sony WH-1000XM5 Auriculares Inalámbricos",
-    "precio": 399.99,
-    "precioOriginal": 449.99,
+    "precio": 399,
+    "precioOriginal": 449,
     "descuento": 11,
     "categoria": "Audio",
     "tags": [
@@ -22,7 +22,7 @@
   {
     "ref": "PROD-002",
     "nombre": "Apple AirPods Pro 2da Generación",
-    "precio": 249.99,
+    "precio": 249,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -35,8 +35,8 @@
   {
     "ref": "PROD-003",
     "nombre": "Bose QuietComfort 45",
-    "precio": 329.99,
-    "precioOriginal": 379.99,
+    "precio": 329,
+    "precioOriginal": 379,
     "descuento": 13,
     "categoria": "Audio",
     "tags": [
@@ -54,7 +54,7 @@
   {
     "ref": "PROD-004",
     "nombre": "Apple Watch Series 9 GPS 45mm",
-    "precio": 429.99,
+    "precio": 429,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Wearables",
@@ -67,8 +67,8 @@
   {
     "ref": "PROD-005",
     "nombre": "Samsung Galaxy Watch 6 Classic",
-    "precio": 399.99,
-    "precioOriginal": 449.99,
+    "precio": 399,
+    "precioOriginal": 449,
     "descuento": 11,
     "categoria": "Wearables",
     "tags": ["smartwatch", "samsung", "fitness", "android", "health"],
@@ -80,8 +80,8 @@
   {
     "ref": "PROD-006",
     "nombre": "Fitbit Charge 6 Monitor de Actividad",
-    "precio": 149.99,
-    "precioOriginal": 179.99,
+    "precio": 149,
+    "precioOriginal": 179,
     "descuento": 17,
     "categoria": "Fitness",
     "tags": ["fitness-tracker", "fitbit", "health", "sports", "monitor"],
@@ -93,7 +93,7 @@
   {
     "ref": "PROD-007",
     "nombre": "MacBook Pro 14 M3 Pro",
-    "precio": 1999.99,
+    "precio": 1999,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Laptops",
@@ -106,8 +106,8 @@
   {
     "ref": "PROD-008",
     "nombre": "Dell XPS 15 Intel Core i7",
-    "precio": 1799.99,
-    "precioOriginal": 1999.99,
+    "precio": 1799,
+    "precioOriginal": 1999,
     "descuento": 10,
     "categoria": "Laptops",
     "tags": ["laptop", "dell", "windows", "i7", "profesional"],
@@ -119,7 +119,7 @@
   {
     "ref": "PROD-009",
     "nombre": "Lenovo ThinkPad X1 Carbon Gen 11",
-    "precio": 1599.99,
+    "precio": 1599,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Laptops",
@@ -132,8 +132,8 @@
   {
     "ref": "PROD-010",
     "nombre": "ASUS ROG Zephyrus G14 Gaming",
-    "precio": 1499.99,
-    "precioOriginal": 1699.99,
+    "precio": 1499,
+    "precioOriginal": 1699,
     "descuento": 12,
     "categoria": "Laptops",
     "tags": ["laptop", "gaming", "asus", "rog", "ryzen", "rtx"],
@@ -145,7 +145,7 @@
   {
     "ref": "PROD-011",
     "nombre": "iPhone 15 Pro Max 256GB",
-    "precio": 1199.99,
+    "precio": 1199,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Smartphones",
@@ -158,7 +158,7 @@
   {
     "ref": "PROD-012",
     "nombre": "Samsung Galaxy S24 Ultra",
-    "precio": 1299.99,
+    "precio": 1299,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Smartphones",
@@ -171,7 +171,7 @@
   {
     "ref": "PROD-013",
     "nombre": "Google Pixel 8 Pro",
-    "precio": 999.99,
+    "precio": 999,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Smartphones",
@@ -184,7 +184,7 @@
   {
     "ref": "PROD-014",
     "nombre": "iPad Pro 12.9 M2 256GB",
-    "precio": 1099.99,
+    "precio": 1099,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Tablets",
@@ -197,8 +197,8 @@
   {
     "ref": "PROD-015",
     "nombre": "Samsung Galaxy Tab S9 Ultra",
-    "precio": 1199.99,
-    "precioOriginal": 1399.99,
+    "precio": 1199,
+    "precioOriginal": 1399,
     "descuento": 14,
     "categoria": "Tablets",
     "tags": ["tablet", "samsung", "android", "s-pen", "ultra"],
@@ -210,7 +210,7 @@
   {
     "ref": "PROD-016",
     "nombre": "Sony Alpha A7 IV Mirrorless",
-    "precio": 2499.99,
+    "precio": 2499,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Cámaras",
@@ -223,8 +223,8 @@
   {
     "ref": "PROD-017",
     "nombre": "Canon EOS R6 Mark II",
-    "precio": 2399.99,
-    "precioOriginal": 2599.99,
+    "precio": 2399,
+    "precioOriginal": 2599,
     "descuento": 8,
     "categoria": "Cámaras",
     "tags": ["camara", "canon", "mirrorless", "full-frame", "video"],
@@ -236,7 +236,7 @@
   {
     "ref": "PROD-018",
     "nombre": "Nikon Z8 Mirrorless Camera",
-    "precio": 3999.99,
+    "precio": 3999,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Cámaras",
@@ -249,8 +249,8 @@
   {
     "ref": "PROD-019",
     "nombre": "GoPro HERO 12 Black",
-    "precio": 399.99,
-    "precioOriginal": 449.99,
+    "precio": 399,
+    "precioOriginal": 449,
     "descuento": 11,
     "categoria": "Cámaras",
     "tags": ["action-camera", "gopro", "4k", "waterproof", "sports"],
@@ -262,7 +262,7 @@
   {
     "ref": "PROD-020",
     "nombre": "DJI Mini 4 Pro Drone",
-    "precio": 759.99,
+    "precio": 759,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Drones",
@@ -275,7 +275,7 @@
   {
     "ref": "PROD-021",
     "nombre": "Logitech MX Master 3S Mouse",
-    "precio": 99.99,
+    "precio": 99,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Accesorios",
@@ -288,8 +288,8 @@
   {
     "ref": "PROD-022",
     "nombre": "Keychron K8 Pro Teclado Mecánico",
-    "precio": 129.99,
-    "precioOriginal": 149.99,
+    "precio": 129,
+    "precioOriginal": 149,
     "descuento": 13,
     "categoria": "Accesorios",
     "tags": ["teclado", "mecanico", "keychron", "wireless", "rgb"],
@@ -301,8 +301,8 @@
   {
     "ref": "PROD-023",
     "nombre": "Corsair K70 RGB Gaming Keyboard",
-    "precio": 169.99,
-    "precioOriginal": 199.99,
+    "precio": 169,
+    "precioOriginal": 199,
     "descuento": 15,
     "categoria": "Gaming",
     "tags": ["teclado", "gaming", "corsair", "mecanico", "rgb"],
@@ -314,7 +314,7 @@
   {
     "ref": "PROD-024",
     "nombre": "Razer DeathAdder V3 Pro",
-    "precio": 149.99,
+    "precio": 149,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Gaming",
@@ -327,8 +327,8 @@
   {
     "ref": "PROD-025",
     "nombre": "LG UltraGear 27 Gaming Monitor 144Hz",
-    "precio": 299.99,
-    "precioOriginal": 399.99,
+    "precio": 299,
+    "precioOriginal": 399,
     "descuento": 25,
     "categoria": "Monitores",
     "tags": ["monitor", "gaming", "lg", "144hz", "1ms", "ips"],
@@ -340,8 +340,8 @@
   {
     "ref": "PROD-026",
     "nombre": "Dell UltraSharp 32 4K USB-C Monitor",
-    "precio": 699.99,
-    "precioOriginal": 799.99,
+    "precio": 699,
+    "precioOriginal": 799,
     "descuento": 13,
     "categoria": "Monitores",
     "tags": ["monitor", "dell", "4k", "usb-c", "profesional"],
@@ -353,8 +353,8 @@
   {
     "ref": "PROD-027",
     "nombre": "Samsung Odyssey G9 49 Ultrawide",
-    "precio": 1299.99,
-    "precioOriginal": 1599.99,
+    "precio": 1299,
+    "precioOriginal": 1599,
     "descuento": 19,
     "categoria": "Monitores",
     "tags": ["monitor", "gaming", "samsung", "ultrawide", "curved", "240hz"],
@@ -366,7 +366,7 @@
   {
     "ref": "PROD-028",
     "nombre": "Sony PlayStation 5 Slim",
-    "precio": 499.99,
+    "precio": 499,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Consolas",
@@ -379,7 +379,7 @@
   {
     "ref": "PROD-029",
     "nombre": "Xbox Series X",
-    "precio": 499.99,
+    "precio": 499,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Consolas",
@@ -392,7 +392,7 @@
   {
     "ref": "PROD-030",
     "nombre": "Nintendo Switch OLED",
-    "precio": 349.99,
+    "precio": 349,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Consolas",
@@ -405,8 +405,8 @@
   {
     "ref": "PROD-031",
     "nombre": "SteelSeries Arctis Nova Pro Wireless",
-    "precio": 349.99,
-    "precioOriginal": 399.99,
+    "precio": 349,
+    "precioOriginal": 399,
     "descuento": 13,
     "categoria": "Gaming",
     "tags": ["headset", "gaming", "steelseries", "wireless", "surround"],
@@ -418,8 +418,8 @@
   {
     "ref": "PROD-032",
     "nombre": "HyperX Cloud Alpha Wireless",
-    "precio": 199.99,
-    "precioOriginal": 229.99,
+    "precio": 199,
+    "precioOriginal": 229,
     "descuento": 13,
     "categoria": "Gaming",
     "tags": ["headset", "gaming", "hyperx", "wireless", "300hrs"],
@@ -431,7 +431,7 @@
   {
     "ref": "PROD-033",
     "nombre": "Elgato Stream Deck MK.2",
-    "precio": 149.99,
+    "precio": 149,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Streaming",
@@ -444,8 +444,8 @@
   {
     "ref": "PROD-034",
     "nombre": "Blue Yeti X Micrófono USB",
-    "precio": 169.99,
-    "precioOriginal": 199.99,
+    "precio": 169,
+    "precioOriginal": 199,
     "descuento": 15,
     "categoria": "Audio",
     "tags": ["microfono", "blue-yeti", "usb", "streaming", "podcast"],
@@ -457,7 +457,7 @@
   {
     "ref": "PROD-035",
     "nombre": "Shure SM7B Micrófono Profesional",
-    "precio": 399.99,
+    "precio": 399,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -470,8 +470,8 @@
   {
     "ref": "PROD-036",
     "nombre": "Logitech C920 HD Pro Webcam",
-    "precio": 79.99,
-    "precioOriginal": 99.99,
+    "precio": 79,
+    "precioOriginal": 99,
     "descuento": 20,
     "categoria": "Accesorios",
     "tags": ["webcam", "logitech", "1080p", "streaming", "videoconferencia"],
@@ -483,7 +483,7 @@
   {
     "ref": "PROD-037",
     "nombre": "Elgato Facecam Pro 4K Webcam",
-    "precio": 299.99,
+    "precio": 299,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Streaming",
@@ -496,8 +496,8 @@
   {
     "ref": "PROD-038",
     "nombre": "Anker PowerCore 26800 Power Bank",
-    "precio": 59.99,
-    "precioOriginal": 74.99,
+    "precio": 59,
+    "precioOriginal": 74,
     "descuento": 20,
     "categoria": "Accesorios",
     "tags": ["powerbank", "anker", "bateria", "portatil", "carga-rapida"],
@@ -509,7 +509,7 @@
   {
     "ref": "PROD-039",
     "nombre": "Belkin Boost Charge Pro 3-in-1",
-    "precio": 149.99,
+    "precio": 149,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Accesorios",
@@ -522,8 +522,8 @@
   {
     "ref": "PROD-040",
     "nombre": "Samsung T7 Portable SSD 1TB",
-    "precio": 109.99,
-    "precioOriginal": 139.99,
+    "precio": 109,
+    "precioOriginal": 139,
     "descuento": 21,
     "categoria": "Almacenamiento",
     "tags": ["ssd", "samsung", "portable", "usb-c", "1tb"],
@@ -535,8 +535,8 @@
   {
     "ref": "PROD-041",
     "nombre": "WD Black SN850X NVMe SSD 2TB",
-    "precio": 199.99,
-    "precioOriginal": 249.99,
+    "precio": 199,
+    "precioOriginal": 249,
     "descuento": 20,
     "categoria": "Almacenamiento",
     "tags": ["ssd", "nvme", "western-digital", "gaming", "2tb"],
@@ -548,8 +548,8 @@
   {
     "ref": "PROD-042",
     "nombre": "Seagate Expansion 8TB HDD Externo",
-    "precio": 149.99,
-    "precioOriginal": 189.99,
+    "precio": 149,
+    "precioOriginal": 189,
     "descuento": 21,
     "categoria": "Almacenamiento",
     "tags": ["hdd", "seagate", "externo", "8tb", "backup"],
@@ -561,8 +561,8 @@
   {
     "ref": "PROD-043",
     "nombre": "TP-Link Archer AX6000 WiFi 6 Router",
-    "precio": 299.99,
-    "precioOriginal": 349.99,
+    "precio": 299,
+    "precioOriginal": 349,
     "descuento": 14,
     "categoria": "Redes",
     "tags": ["router", "wifi-6", "tp-link", "gaming", "mesh"],
@@ -574,8 +574,8 @@
   {
     "ref": "PROD-044",
     "nombre": "ASUS ROG Rapture GT-AX11000 Router",
-    "precio": 449.99,
-    "precioOriginal": 549.99,
+    "precio": 449,
+    "precioOriginal": 549,
     "descuento": 18,
     "categoria": "Redes",
     "tags": ["router", "gaming", "asus", "wifi-6", "tri-band"],
@@ -587,8 +587,8 @@
   {
     "ref": "PROD-045",
     "nombre": "Netgear Orbi WiFi 6 Mesh System",
-    "precio": 599.99,
-    "precioOriginal": 699.99,
+    "precio": 599,
+    "precioOriginal": 699,
     "descuento": 14,
     "categoria": "Redes",
     "tags": ["mesh", "wifi-6", "netgear", "router", "sistema"],
@@ -600,7 +600,7 @@
   {
     "ref": "PROD-046",
     "nombre": "Sonos Arc Soundbar Premium",
-    "precio": 899.99,
+    "precio": 899,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -613,7 +613,7 @@
   {
     "ref": "PROD-047",
     "nombre": "Bose Smart Soundbar 900",
-    "precio": 899.99,
+    "precio": 899,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -626,7 +626,7 @@
   {
     "ref": "PROD-048",
     "nombre": "JBL Flip 6 Altavoz Bluetooth",
-    "precio": 129.99,
+    "precio": 129,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -639,8 +639,8 @@
   {
     "ref": "PROD-049",
     "nombre": "Ultimate Ears MEGABOOM 3",
-    "precio": 199.99,
-    "precioOriginal": 229.99,
+    "precio": 199,
+    "precioOriginal": 229,
     "descuento": 13,
     "categoria": "Audio",
     "tags": ["altavoz", "bluetooth", "ue", "portable", "360-sound"],
@@ -652,7 +652,7 @@
   {
     "ref": "PROD-050",
     "nombre": "Amazon Echo Studio Smart Speaker",
-    "precio": 199.99,
+    "precio": 199,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Smart Home",
@@ -665,7 +665,7 @@
   {
     "ref": "PROD-051",
     "nombre": "Google Nest Hub Max",
-    "precio": 229.99,
+    "precio": 229,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Smart Home",
@@ -678,8 +678,8 @@
   {
     "ref": "PROD-052",
     "nombre": "Ring Video Doorbell Pro 2",
-    "precio": 249.99,
-    "precioOriginal": 279.99,
+    "precio": 249,
+    "precioOriginal": 279,
     "descuento": 11,
     "categoria": "Smart Home",
     "tags": ["doorbell", "ring", "seguridad", "video", "wifi"],
@@ -691,8 +691,8 @@
   {
     "ref": "PROD-053",
     "nombre": "Arlo Pro 4 Cámara de Seguridad",
-    "precio": 199.99,
-    "precioOriginal": 249.99,
+    "precio": 199,
+    "precioOriginal": 249,
     "descuento": 20,
     "categoria": "Smart Home",
     "tags": ["camara", "seguridad", "arlo", "wireless", "2k"],
@@ -704,7 +704,7 @@
   {
     "ref": "PROD-054",
     "nombre": "Philips Hue Play Gradient Lightstrip",
-    "precio": 169.99,
+    "precio": 169,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Smart Home",
@@ -717,7 +717,7 @@
   {
     "ref": "PROD-055",
     "nombre": "Nest Learning Thermostat",
-    "precio": 249.99,
+    "precio": 249,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Smart Home",
@@ -730,8 +730,8 @@
   {
     "ref": "PROD-056",
     "nombre": "Eufy RoboVac X8 Hybrid",
-    "precio": 449.99,
-    "precioOriginal": 549.99,
+    "precio": 449,
+    "precioOriginal": 549,
     "descuento": 18,
     "categoria": "Smart Home",
     "tags": ["robot-aspiradora", "eufy", "smart", "mapeo", "hibrido"],
@@ -743,8 +743,8 @@
   {
     "ref": "PROD-057",
     "nombre": "iRobot Roomba j7+ Robot Aspiradora",
-    "precio": 799.99,
-    "precioOriginal": 899.99,
+    "precio": 799,
+    "precioOriginal": 899,
     "descuento": 11,
     "categoria": "Smart Home",
     "tags": ["robot-aspiradora", "roomba", "irobot", "auto-vaciado", "smart"],
@@ -756,7 +756,7 @@
   {
     "ref": "PROD-058",
     "nombre": "Apple AirTag 4 Pack",
-    "precio": 99.99,
+    "precio": 99,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Accesorios",
@@ -769,7 +769,7 @@
   {
     "ref": "PROD-059",
     "nombre": "Tile Pro Localizador Bluetooth",
-    "precio": 34.99,
+    "precio": 34,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Accesorios",
@@ -782,7 +782,7 @@
   {
     "ref": "PROD-060",
     "nombre": "Oculus Quest 3 VR Headset 128GB",
-    "precio": 499.99,
+    "precio": 499,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "VR",
@@ -795,7 +795,7 @@
   {
     "ref": "PROD-061",
     "nombre": "PlayStation VR2",
-    "precio": 549.99,
+    "precio": 549,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "VR",
@@ -808,7 +808,7 @@
   {
     "ref": "PROD-062",
     "nombre": "Valve Index VR Kit Completo",
-    "precio": 999.99,
+    "precio": 999,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "VR",
@@ -821,7 +821,7 @@
   {
     "ref": "PROD-063",
     "nombre": "NVIDIA GeForce RTX 4080 16GB",
-    "precio": 1199.99,
+    "precio": 1199,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Componentes",
@@ -834,7 +834,7 @@
   {
     "ref": "PROD-064",
     "nombre": "AMD Radeon RX 7900 XTX 24GB",
-    "precio": 999.99,
+    "precio": 999,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Componentes",
@@ -847,7 +847,7 @@
   {
     "ref": "PROD-065",
     "nombre": "Intel Core i9-13900K Procesador",
-    "precio": 589.99,
+    "precio": 589,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Componentes",
@@ -860,8 +860,8 @@
   {
     "ref": "PROD-066",
     "nombre": "AMD Ryzen 9 7950X Procesador",
-    "precio": 549.99,
-    "precioOriginal": 699.99,
+    "precio": 549,
+    "precioOriginal": 699,
     "descuento": 21,
     "categoria": "Componentes",
     "tags": ["cpu", "amd", "ryzen", "procesador", "16-cores"],
@@ -873,8 +873,8 @@
   {
     "ref": "PROD-067",
     "nombre": "Corsair Vengeance RGB 32GB DDR5",
-    "precio": 179.99,
-    "precioOriginal": 219.99,
+    "precio": 179,
+    "precioOriginal": 219,
     "descuento": 18,
     "categoria": "Componentes",
     "tags": ["ram", "corsair", "ddr5", "32gb", "rgb"],
@@ -886,7 +886,7 @@
   {
     "ref": "PROD-068",
     "nombre": "ASUS ROG Strix Z790-E Motherboard",
-    "precio": 449.99,
+    "precio": 449,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Componentes",
@@ -899,8 +899,8 @@
   {
     "ref": "PROD-069",
     "nombre": "MSI MAG B650 TOMAHAWK WIFI",
-    "precio": 269.99,
-    "precioOriginal": 299.99,
+    "precio": 269,
+    "precioOriginal": 299,
     "descuento": 10,
     "categoria": "Componentes",
     "tags": ["motherboard", "msi", "b650", "amd", "wifi"],
@@ -912,7 +912,7 @@
   {
     "ref": "PROD-070",
     "nombre": "NZXT Kraken Elite 360 RGB AIO",
-    "precio": 289.99,
+    "precio": 289,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Componentes",
@@ -925,7 +925,7 @@
   {
     "ref": "PROD-071",
     "nombre": "Corsair iCUE H150i Elite LCD AIO",
-    "precio": 299.99,
+    "precio": 299,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Componentes",
@@ -938,7 +938,7 @@
   {
     "ref": "PROD-072",
     "nombre": "Lian Li O11 Dynamic EVO Case",
-    "precio": 179.99,
+    "precio": 179,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Componentes",
@@ -951,8 +951,8 @@
   {
     "ref": "PROD-073",
     "nombre": "NZXT H7 Flow RGB Mid-Tower",
-    "precio": 139.99,
-    "precioOriginal": 159.99,
+    "precio": 139,
+    "precioOriginal": 159,
     "descuento": 13,
     "categoria": "Componentes",
     "tags": ["case", "nzxt", "gabinete", "rgb", "airflow"],
@@ -964,8 +964,8 @@
   {
     "ref": "PROD-074",
     "nombre": "Corsair RM1000x 1000W 80+ Gold PSU",
-    "precio": 189.99,
-    "precioOriginal": 219.99,
+    "precio": 189,
+    "precioOriginal": 219,
     "descuento": 14,
     "categoria": "Componentes",
     "tags": ["psu", "corsair", "fuente", "modular", "1000w"],
@@ -977,7 +977,7 @@
   {
     "ref": "PROD-075",
     "nombre": "EVGA SuperNOVA 850W 80+ Platinum",
-    "precio": 149.99,
+    "precio": 149,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Componentes",
@@ -990,7 +990,7 @@
   {
     "ref": "PROD-076",
     "nombre": "Secretlab TITAN Evo 2022 Gaming Chair",
-    "precio": 549.99,
+    "precio": 549,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Mobiliario",
@@ -1003,7 +1003,7 @@
   {
     "ref": "PROD-077",
     "nombre": "Herman Miller Aeron Ergonomic Chair",
-    "precio": 1495.99,
+    "precio": 1495,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Mobiliario",
@@ -1016,8 +1016,8 @@
   {
     "ref": "PROD-078",
     "nombre": "FlexiSpot E7 Standing Desk",
-    "precio": 599.99,
-    "precioOriginal": 699.99,
+    "precio": 599,
+    "precioOriginal": 699,
     "descuento": 14,
     "categoria": "Mobiliario",
     "tags": [
@@ -1035,7 +1035,7 @@
   {
     "ref": "PROD-079",
     "nombre": "Autonomous SmartDesk Pro",
-    "precio": 549.99,
+    "precio": 549,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Mobiliario",
@@ -1048,7 +1048,7 @@
   {
     "ref": "PROD-080",
     "nombre": "BenQ ScreenBar Halo Monitor Light",
-    "precio": 169.99,
+    "precio": 169,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Accesorios",
@@ -1061,7 +1061,7 @@
   {
     "ref": "PROD-081",
     "nombre": "Elgato Key Light Air",
-    "precio": 129.99,
+    "precio": 129,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Streaming",
@@ -1074,7 +1074,7 @@
   {
     "ref": "PROD-082",
     "nombre": "Ergotron LX Monitor Arm",
-    "precio": 159.99,
+    "precio": 159,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Accesorios",
@@ -1087,7 +1087,7 @@
   {
     "ref": "PROD-083",
     "nombre": "CalDigit TS4 Thunderbolt 4 Dock",
-    "precio": 399.99,
+    "precio": 399,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Accesorios",
@@ -1100,8 +1100,8 @@
   {
     "ref": "PROD-084",
     "nombre": "Anker USB-C Hub 7-in-1",
-    "precio": 49.99,
-    "precioOriginal": 59.99,
+    "precio": 49,
+    "precioOriginal": 59,
     "descuento": 17,
     "categoria": "Accesorios",
     "tags": ["hub", "usb-c", "anker", "adaptador", "7-puertos"],
@@ -1113,7 +1113,7 @@
   {
     "ref": "PROD-085",
     "nombre": "Razer BlackWidow V4 Pro Teclado",
-    "precio": 229.99,
+    "precio": 229,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Gaming",
@@ -1126,8 +1126,8 @@
   {
     "ref": "PROD-086",
     "nombre": "SteelSeries Apex Pro TKL",
-    "precio": 189.99,
-    "precioOriginal": 219.99,
+    "precio": 189,
+    "precioOriginal": 219,
     "descuento": 14,
     "categoria": "Gaming",
     "tags": ["teclado", "steelseries", "mecanico", "tkl", "ajustable"],
@@ -1139,7 +1139,7 @@
   {
     "ref": "PROD-087",
     "nombre": "Logitech G Pro X Superlight 2",
-    "precio": 159.99,
+    "precio": 159,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Gaming",
@@ -1152,7 +1152,7 @@
   {
     "ref": "PROD-088",
     "nombre": "Finalmouse Ultralight X",
-    "precio": 189.99,
+    "precio": 189,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Gaming",
@@ -1165,7 +1165,7 @@
   {
     "ref": "PROD-089",
     "nombre": "Glorious Model O 2 Wireless",
-    "precio": 129.99,
+    "precio": 129,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Gaming",
@@ -1178,7 +1178,7 @@
   {
     "ref": "PROD-090",
     "nombre": "Rode PodMic USB Micrófono",
-    "precio": 199.99,
+    "precio": 199,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1191,7 +1191,7 @@
   {
     "ref": "PROD-091",
     "nombre": "Audio-Technica AT2020USB+ Mic",
-    "precio": 149.99,
+    "precio": 149,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1204,7 +1204,7 @@
   {
     "ref": "PROD-092",
     "nombre": "Elgato Wave:3 USB Condenser Mic",
-    "precio": 159.99,
+    "precio": 159,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Streaming",
@@ -1217,7 +1217,7 @@
   {
     "ref": "PROD-093",
     "nombre": "Beyerdynamic DT 990 Pro Headphones",
-    "precio": 179.99,
+    "precio": 179,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1236,7 +1236,7 @@
   {
     "ref": "PROD-094",
     "nombre": "Sennheiser HD 660S2 Headphones",
-    "precio": 599.99,
+    "precio": 599,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1255,7 +1255,7 @@
   {
     "ref": "PROD-095",
     "nombre": "Focal Clear MG Professional Headphones",
-    "precio": 1499.99,
+    "precio": 1499,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1268,7 +1268,7 @@
   {
     "ref": "PROD-096",
     "nombre": "Audeze LCD-X Creator Edition",
-    "precio": 1199.99,
+    "precio": 1199,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1287,7 +1287,7 @@
   {
     "ref": "PROD-097",
     "nombre": "Rode NT1 5th Generation Mic",
-    "precio": 269.99,
+    "precio": 269,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1300,7 +1300,7 @@
   {
     "ref": "PROD-098",
     "nombre": "Focusrite Scarlett 2i2 Audio Interface",
-    "precio": 179.99,
+    "precio": 179,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1313,7 +1313,7 @@
   {
     "ref": "PROD-099",
     "nombre": "Universal Audio Volt 276 Interface",
-    "precio": 299.99,
+    "precio": 299,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1332,7 +1332,7 @@
   {
     "ref": "PROD-100",
     "nombre": "Yamaha HS8 Studio Monitor (Par)",
-    "precio": 699.99,
+    "precio": 699,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1345,7 +1345,7 @@
   {
     "ref": "PROD-101",
     "nombre": "KRK Rokit 5 G4 Monitors (Par)",
-    "precio": 379.99,
+    "precio": 379,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",
@@ -1358,7 +1358,7 @@
   {
     "ref": "PROD-102",
     "nombre": "Adam Audio T7V Studio Monitors (Par)",
-    "precio": 599.99,
+    "precio": 599,
     "precioOriginal": null,
     "descuento": 0,
     "categoria": "Audio",

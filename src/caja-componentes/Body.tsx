@@ -3,6 +3,7 @@ import { type Dispatch, type ReactNode, type SetStateAction } from "react";
 import GetDiccinary from "@/utils/Diccionary/GetDiccionary";
 import type { ProductType } from "src/App";
 import { SistemStar } from "@/utils/ProductLogic";
+import { AddCart } from "@/utils/CartShop";
 type BodyProps = {
   Title: ReactNode;
   Nav: ReactNode;
@@ -74,9 +75,11 @@ export const Nav = (props: NavProps) => {
 
 type ProductProps = {
   listProduct: ProductType[];
+  cartShop : ProductType[];
+  SetCartShop : Dispatch<SetStateAction<ProductType[]>>;
 };
 export const CardProduct = (props: ProductProps) => {
-  const { listProduct } = props;
+  const { listProduct, cartShop, SetCartShop } = props;
   return listProduct.map((p) => {
     const listOfStar = SistemStar({ rating: p.rating });
     return (
@@ -123,17 +126,18 @@ export const CardProduct = (props: ProductProps) => {
           </div>
 
           <div className="flex items-baseline gap-1.5 mb-2.5">
-            <span className="text-lg font-bold text-gray-900">{p.precio}</span>
+            <span className="text-lg font-bold text-gray-900">{(p.precio).toLocaleString()}</span>
             <span
               className={`text-[10px] text-gray-400 line-through ${
                 p.precioOriginal ? "block" : "hidden"
               }`}
             >
-              {p.precioOriginal || 0}
+              {p.precioOriginal?.toLocaleString() || 0}
             </span>
           </div>
 
-          <button className="w-full h-8 bg-gray-900 text-white rounded-lg text-xs font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-1.5">
+          <button className="w-full h-8 bg-gray-900 text-white rounded-lg text-xs font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-1.5" 
+          onClick={() => {AddCart({product : p, CartShop : cartShop, SetCartShop: SetCartShop})}}>
             <ShoppingCart className="h-3.5 w-3.5" />
             Agregar
           </button>

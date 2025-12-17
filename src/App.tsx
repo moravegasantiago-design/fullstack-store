@@ -2,9 +2,9 @@ import Header, {
   SearchDesklop,
   SearchMovil,
   BtnAccion,
-} from "./caja-componentes/Header.tsx";
-import Body, { Title, Nav, CardProduct } from "./caja-componentes/Body.tsx";
-import Footer from "./caja-componentes/Footer.tsx";
+} from "./caja-componentes/Header";
+import Body, { Title, Nav, CardProduct } from "./caja-componentes/Body";
+import Footer from "./caja-componentes/Footer";
 import { useEffect, useState } from "react";
 export type ProductType = {
   ref: string;
@@ -19,11 +19,13 @@ export type ProductType = {
   reviews: number;
   stock: boolean;
   favorite?: boolean;
+  amount?: number;
 };
 const App = () => {
   const [ProductFilter, SetProductFilter] = useState<ProductType[]>([]);
   const [product, SetProduct] = useState<ProductType[]>([]);
   const [option, SetOption] = useState("");
+  const [cartShop, SetCartShop] = useState<ProductType[]>([]);
 
   useEffect(() => {
     const dataFetch = async () => {
@@ -43,8 +45,13 @@ const App = () => {
       <Header
         inputDesklop={<SearchDesklop />}
         inputMovil={<SearchMovil />}
-        Buttons={<BtnAccion />}
+        Buttons={({ CartShop, SetCartEvent }) => (
+          <BtnAccion CartShop={CartShop} SetCartEvent={SetCartEvent} />
+        )}
+        CartShop={cartShop}
+        SetCartShop={SetCartShop}
       />
+
       <Body
         Title={<Title option={option} />}
         Nav={
@@ -55,7 +62,13 @@ const App = () => {
             option={option}
           />
         }
-        CardProduct={<CardProduct listProduct={ProductFilter} />}
+        CardProduct={
+          <CardProduct
+            listProduct={ProductFilter}
+            cartShop={cartShop}
+            SetCartShop={SetCartShop}
+          />
+        }
       />
       <Footer />
     </>
