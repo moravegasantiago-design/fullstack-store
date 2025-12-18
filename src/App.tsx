@@ -1,11 +1,8 @@
-import Header, {
-  SearchDesklop,
-  SearchMovil,
-  BtnAccion,
-} from "./caja-componentes/Header";
+import Header from "./caja-componentes/Header";
 import Body, { Title, Nav, CardProduct } from "./caja-componentes/Body";
 import Footer from "./caja-componentes/Footer";
 import { useEffect, useState } from "react";
+
 export type ProductType = {
   ref: string;
   nombre: string;
@@ -21,6 +18,7 @@ export type ProductType = {
   favorite?: boolean;
   amount?: number;
 };
+
 const App = () => {
   const [ProductFilter, SetProductFilter] = useState<ProductType[]>([]);
   const [product, SetProduct] = useState<ProductType[]>([]);
@@ -40,16 +38,15 @@ const App = () => {
     };
     dataFetch();
   }, []);
+
   return (
     <>
       <Header
-        inputDesklop={<SearchDesklop />}
-        inputMovil={<SearchMovil />}
-        Buttons={({ CartShop, SetCartEvent }) => (
-          <BtnAccion CartShop={CartShop} SetCartEvent={SetCartEvent} />
-        )}
         CartShop={cartShop}
         SetCartShop={SetCartShop}
+        product={product}
+        SetProductFilter={SetProductFilter}
+        SetOption={SetOption}
       />
 
       <Body
@@ -74,4 +71,5 @@ const App = () => {
     </>
   );
 };
+
 export default App;

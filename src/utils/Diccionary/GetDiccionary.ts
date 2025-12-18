@@ -79,9 +79,11 @@ export const CATEGORY_INFO = {
 
 export const GetDiccinary = (option?: string) => {
   const item = option
-    ? CATEGORY_INFO[option as keyof typeof CATEGORY_INFO]
+    ? CATEGORY_INFO[option as keyof typeof CATEGORY_INFO] || {
+        title: option,
+        description: "Contenido relacionado con tu búsqueda",
+      }
     : undefined;
-
   return (
     item ?? {
       title: "Productos Destacados",

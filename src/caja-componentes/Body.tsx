@@ -13,13 +13,10 @@ const Body = (props: BodyProps) => {
   const { Title, Nav, CardProduct } = props;
   return (
     <>
-      {/* ========== HEADER========== */}
-      <div className="mb-8">{Title}</div>
-      {/* ========== NAV ========== */}
       <div className="mb-8 border-b border-gray-200">
         <div className="flex gap-1 overflow-x-auto pb-px">{Nav}</div>
       </div>
-      {/* ========== PRODUCT ========== */}
+      <div className="mb-8">{Title}</div>
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
         {CardProduct}
       </div>
@@ -32,8 +29,7 @@ type TitleProps = {
 };
 export const Title = (props: TitleProps) => {
   const { option } = props;
-  const Key = option || "Preterminate";
-  const ObjHeader = GetDiccinary(Key);
+  const ObjHeader = GetDiccinary(option);
   return (
     <>
       <h2 className="text-3xl font-bold text-gray-900 mb-2">
@@ -132,7 +128,7 @@ export const CardProduct = (props: ProductProps) => {
                 p.precioOriginal ? "block" : "hidden"
               }`}
             >
-              {p.precioOriginal?.toLocaleString() || 0}
+              {p.precioOriginal?.toLocaleString() ?? 0}
             </span>
           </div>
 
