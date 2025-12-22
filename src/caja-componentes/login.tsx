@@ -9,10 +9,11 @@ import {
 
 type UserProps = {
   SetViewLogin: Dispatch<SetStateAction<boolean>>;
+  SetAuth: Dispatch<SetStateAction<boolean>>;
 };
 
 const Login = (props: UserProps) => {
-  const { SetViewLogin } = props;
+  const { SetViewLogin, SetAuth } = props;
   const [systemLogin, SetSystemLogin] = useState<boolean>(false);
   return (
     <div
@@ -37,7 +38,7 @@ const Login = (props: UserProps) => {
             {systemLogin ? (
               <FormRegister SetSystemLogin={SetSystemLogin} />
             ) : (
-              <FromLogin />
+              <FromLogin SetViewLogin={SetViewLogin} SetAuth={SetAuth} />
             )}
           </div>
 
@@ -83,7 +84,11 @@ const HeaderLogin = (props: { systemLogin: boolean }) => {
   );
 };
 
-const FromLogin = () => {
+const FromLogin = (props: {
+  SetViewLogin: Dispatch<SetStateAction<boolean>>;
+  SetAuth: Dispatch<SetStateAction<boolean>>;
+}) => {
+  const { SetViewLogin, SetAuth } = props;
   const [submitLogin, SetSubmitLogin] = useState<FromProps>({
     email: "",
     password: "",
@@ -109,13 +114,19 @@ const FromLogin = () => {
           const res = await fetch("http://localhost:3000/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
+            credentials: "include",
             body: JSON.stringify({
               email: submitLogin.email,
               password: submitLogin.password,
             }),
           });
           const status = await res.json();
-          if (status.success) alert("Logueado correcto");
+          if (status.success) {
+            SetViewLogin(false);
+            SetAuth(true);
+          } else {
+            SetAuth(false);
+          }
           SetPasswordStatus(res.status);
         } catch (err) {
           console.error(err);

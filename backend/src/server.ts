@@ -1,8 +1,20 @@
 import express, { Response, Request } from "express";
 import cors from "cors";
 import EncryptPassword, { comparePass } from "./encryptPassword";
+import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+import { createToken } from "./cookieSystem";
+import jwt from "jsonwebtoken";
+dotenv.config();
+const SECRET_KEY = process.env.JWT_SECRET!;
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
+app.use(cookieParser());
 app.use(express.json());
 export type userProps = {
   id: number;
@@ -21,8 +33,10 @@ app.post("/auth/login", async (req: Request, res: Response) => {
       password: password,
       encryptPass: user.password,
     });
-    if (comparePassword) return res.status(200).json({ success: true });
-    else res.status(401).json({ success: true });
+    if (comparePassword) {
+      createToken({ res: res, user: user, SECRET_KEY: SECRET_KEY });
+      res.status(200).json({ success: true });
+    } else return res.status(401).json({ success: false });
   }
 });
 app.post("/auth/register", async (req: Request, res: Response) => {
@@ -42,7 +56,16 @@ app.post("/auth/register", async (req: Request, res: Response) => {
   }
 });
 
+app.get("/me", (req: Request, res: Response) => {
+  try {
+    const token = req.cookies.token;
+    const data = jwt.verify(token, SECRET_KEY);
+    res.status(200).json({ success: true, data: data });
+  } catch (err) {
+    console.error(err);
+    res.status(401).json({ success: false, error: "Token invalido" });
+  }
+});
 app.listen(3000, () => {
   console.log("Iniciando puerto");
-  console.log(users);
 });
