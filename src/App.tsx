@@ -3,7 +3,7 @@ import Body, { Title, Nav, CardProduct } from "./caja-componentes/Body";
 import Footer from "./caja-componentes/Footer";
 import { useEffect, useState } from "react";
 import Login from "./caja-componentes/login";
-import PerfilEcommerce from "./caja-componentes/myProfile";
+import { ProfilePanel } from "./caja-componentes/myProfile";
 
 export type ProductType = {
   ref: string;
@@ -20,7 +20,14 @@ export type ProductType = {
   favorite?: boolean;
   amount?: number;
 };
-
+export type userProps = {
+  id?: number;
+  name: string;
+  email: string;
+  password?: string;
+  created_at?: Date;
+  cartShop: ProductType[];
+};
 const App = () => {
   const [ProductFilter, SetProductFilter] = useState<ProductType[]>([]);
   const [product, SetProduct] = useState<ProductType[]>([]);
@@ -28,6 +35,12 @@ const App = () => {
   const [cartShop, SetCartShop] = useState<ProductType[]>([]);
   const [viewLogin, SetViewLogin] = useState<boolean>(false);
   const [auth, SetAuth] = useState<boolean>(false);
+  const [meProfile, setMeProfile] = useState<userProps>({
+    name: "preterminado",
+    email: "predeterminado@gmail.com",
+    created_at: new Date(),
+    cartShop: [],
+  });
   useEffect(() => {
     const dataFetch = async () => {
       try {
@@ -43,13 +56,15 @@ const App = () => {
   }, []);
   const verifyAuth = async () => {
     try {
-      const res = await fetch("http://localhost:3000/me", {
+      const req = await fetch("http://localhost:3000/me", {
         method: "GET",
         credentials: "include",
       });
-      const data = await res.json();
-      console.log(data);
-      if (data.success) SetAuth(true);
+      const res = await req.json();
+      if (res.success) {
+        SetAuth(true);
+        setMeProfile(res.data);
+      }
     } catch (err) {
       SetAuth(false);
       console.error(err);
@@ -62,7 +77,7 @@ const App = () => {
     checkAuth();
   }, []);
   const loginInteface = auth ? (
-    <PerfilEcommerce SetViewLogin={SetViewLogin} />
+    <ProfilePanel SetViewLogin={SetViewLogin} meProfile={meProfile} />
   ) : (
     <Login SetViewLogin={SetViewLogin} SetAuth={SetAuth} />
   );

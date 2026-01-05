@@ -8,9 +8,14 @@ type createProps = {
 };
 export const createToken = (props: createProps) => {
   const { res, user, SECRET_KEY } = props;
-  const token = jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, {
-    expiresIn: "24h",
-  });
+  const { email, id, name, created_at } = user;
+  const token = jwt.sign(
+    { id: id, name: name, email: email, created_at: created_at },
+    SECRET_KEY,
+    {
+      expiresIn: "24h",
+    }
+  );
   res.cookie("token", token, {
     //proteccion para que frontend pueda acceder a cookies
     httpOnly: true,

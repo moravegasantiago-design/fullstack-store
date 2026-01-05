@@ -1,427 +1,346 @@
-import { type Dispatch, type SetStateAction } from "react";
+import type { userProps } from "@/App";
 import {
   X,
-  User,
-  Mail,
-  Phone,
+  Truck,
+  CheckCircle,
   MapPin,
-  Package,
-  ShoppingBag,
-  Gamepad2,
-  Trophy,
-  Coins,
-  Zap,
-  Target,
+  CreditCard,
+  Bell,
+  Settings,
   LogOut,
-  Star,
+  Timer,
+  Eye,
+  RotateCcw,
+  User,
+  ImageIcon,
 } from "lucide-react";
-type perfilProps = {
+import type { Dispatch, SetStateAction } from "react";
+type propsProfile = {
   SetViewLogin: Dispatch<SetStateAction<boolean>>;
+  meProfile: userProps;
 };
-const PerfilEcommerce = (props: perfilProps) => {
-  const { SetViewLogin } = props;
+export const ProfilePanel = (props: propsProfile) => {
+  const { SetViewLogin, meProfile } = props;
+  const { email } = meProfile;
   return (
     <div
-      className="fixed inset-0 bg-gradient-to-b from-black/60 to-black/40 backdrop-blur-sm flex items-end sm:items-center justify-center z-50"
-      onClick={() => SetViewLogin(false)}
+      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      onClick={(e) => {
+        e.stopPropagation();
+        SetViewLogin(false);
+      }}
     >
       <div
-        className="bg-white w-full sm:max-w-lg sm:rounded-3xl rounded-t-[2rem] max-h-[95vh] overflow-hidden shadow-2xl relative"
-        onClick={(e) => e.stopPropagation()}
+        className="bg-white w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
       >
-        <button
-          className="absolute top-5 right-5 z-50 bg-red-500 hover:bg-red-600 text-white rounded-full p-2.5 shadow-xl transition-transform hover:scale-110 active:scale-95"
-          onClick={() => SetViewLogin(false)}
-        >
-          <X size={22} strokeWidth={2.5} />
-        </button>
-
-        {/* Header Moderno */}
-        <div className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 px-6 pt-8 pb-6">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="relative">
-              <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-xl ring-4 ring-white/30">
-                <User size={36} className="text-indigo-600" />
-              </div>
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-400 border-4 border-white rounded-full"></div>
+        {/* Header del Panel */}
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-slate-100">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+              <User size={24} />
             </div>
-            <div className="flex-1">
-              <h1 className="text-2xl font-bold text-white mb-1">
-                María González
-              </h1>
-              <div className="flex items-center gap-2 text-white/90 text-sm">
-                <Mail size={14} />
-                <span>maria.gonzalez@email.com</span>
-              </div>
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-slate-800">
+                Mi Perfil
+              </h2>
+              <p className="text-slate-500 text-sm">{email}</p>
             </div>
           </div>
-
-          {/* Badge Nivel */}
-          <div className="bg-white/20 backdrop-blur-md rounded-2xl p-4 border border-white/30">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="bg-yellow-400 rounded-xl p-2">
-                  <Trophy size={24} className="text-yellow-900" />
-                </div>
-                <div>
-                  <p className="text-white/80 text-xs font-medium">
-                    Tu nivel actual
-                  </p>
-                  <p className="text-white text-2xl font-bold">Nivel 12</p>
-                </div>
-              </div>
-              <div className="text-right">
-                <p className="text-white/80 text-xs">XP</p>
-                <p className="text-white text-lg font-bold">2,150/3,000</p>
-              </div>
-            </div>
-            <div className="mt-3 bg-white/20 rounded-full h-2.5 overflow-hidden">
-              <div
-                className="bg-gradient-to-r from-yellow-300 to-yellow-400 h-full rounded-full transition-all duration-500"
-                style={{ width: "72%" }}
-              ></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Contenido Scrollable */}
-        <div
-          className="overflow-y-auto"
-          style={{ maxHeight: "calc(95vh - 280px)" }}
-        >
-          <div className="p-6 space-y-6">
-            {/* Estadísticas Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-5 border-2 border-yellow-200 shadow-sm">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="bg-yellow-400 rounded-xl p-2">
-                    <Coins size={20} className="text-yellow-900" />
-                  </div>
-                </div>
-                <p className="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1">
-                  Balance
-                </p>
-                <p className="text-gray-900 text-3xl font-bold mb-1">$2,450</p>
-                <p className="text-green-600 text-xs font-bold">
-                  +$150 esta semana
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-5 border-2 border-purple-200 shadow-sm">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="bg-purple-400 rounded-xl p-2">
-                    <Star size={20} className="text-purple-900" />
-                  </div>
-                </div>
-                <p className="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1">
-                  Puntos
-                </p>
-                <p className="text-gray-900 text-3xl font-bold mb-1">8,750</p>
-                <p className="text-purple-600 text-xs font-bold">
-                  +320 puntos hoy
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-5 border-2 border-blue-200 shadow-sm">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="bg-blue-400 rounded-xl p-2">
-                    <Gamepad2 size={20} className="text-blue-900" />
-                  </div>
-                </div>
-                <p className="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1">
-                  Juegos
-                </p>
-                <p className="text-gray-900 text-3xl font-bold mb-1">47</p>
-                <p className="text-blue-600 text-xs font-bold">
-                  5 juegos activos
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-5 border-2 border-green-200 shadow-sm">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="bg-green-400 rounded-xl p-2">
-                    <ShoppingBag size={20} className="text-green-900" />
-                  </div>
-                </div>
-                <p className="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1">
-                  Pedidos
-                </p>
-                <p className="text-gray-900 text-3xl font-bold mb-1">23</p>
-                <p className="text-green-600 text-xs font-bold">3 este mes</p>
-              </div>
-            </div>
-
-            {/* Acción Rápida */}
-            <button className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl p-5 shadow-lg transition-all active:scale-[0.98]">
-              <div className="flex items-center justify-between">
-                <div className="text-left">
-                  <p className="text-white/90 text-sm font-medium mb-1">
-                    ¿Listo para jugar?
-                  </p>
-                  <p className="text-white text-lg font-bold">
-                    Gana dólares ahora
-                  </p>
-                </div>
-                <div className="bg-white/20 rounded-xl p-3">
-                  <Gamepad2 size={28} className="text-white" />
-                </div>
-              </div>
-            </button>
-
-            {/* Juegos Activos */}
-            <div>
-              <h2 className="text-gray-900 text-lg font-bold mb-4">
-                Juegos Activos
-              </h2>
-              <div className="space-y-3">
-                <div className="bg-white rounded-2xl p-4 border-2 border-blue-100 shadow-sm">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="bg-blue-500 rounded-xl p-2.5 flex-shrink-0">
-                      <Target size={24} className="text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-gray-900 font-bold text-base mb-0.5">
-                        Trivia Diaria
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        Responde preguntas y gana hasta $50
-                      </p>
-                    </div>
-                    <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold flex-shrink-0">
-                      +$15
-                    </div>
-                  </div>
-                  <div className="bg-blue-50 rounded-xl p-3">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-blue-900 text-sm font-semibold">
-                        Progreso hoy
-                      </span>
-                      <span className="text-blue-700 text-sm font-bold">
-                        5/10
-                      </span>
-                    </div>
-                    <div className="bg-blue-200 rounded-full h-2.5 overflow-hidden">
-                      <div
-                        className="bg-blue-600 h-full rounded-full transition-all duration-500"
-                        style={{ width: "50%" }}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-2xl p-4 border-2 border-purple-100 shadow-sm">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="bg-purple-500 rounded-xl p-2.5 flex-shrink-0">
-                      <Zap size={24} className="text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-gray-900 font-bold text-base mb-0.5">
-                        Ruleta de la Suerte
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        Gira la ruleta y gana hasta $100
-                      </p>
-                    </div>
-                    <div className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold flex-shrink-0">
-                      +$45
-                    </div>
-                  </div>
-                  <button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 rounded-xl font-bold shadow-md transition-all active:scale-[0.98]">
-                    Girar ruleta ahora
-                  </button>
-                </div>
-
-                <div className="bg-white rounded-2xl p-4 border-2 border-orange-100 shadow-sm">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="bg-orange-500 rounded-xl p-2.5 flex-shrink-0">
-                      <Trophy size={24} className="text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-gray-900 font-bold text-base mb-0.5">
-                        Desafío Semanal
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        Completa 10 misiones • Premio: $200
-                      </p>
-                    </div>
-                  </div>
-                  <div className="bg-orange-50 rounded-xl p-3">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-orange-900 text-sm font-semibold">
-                        Misiones completadas
-                      </span>
-                      <span className="text-orange-700 text-sm font-bold">
-                        7/10
-                      </span>
-                    </div>
-                    <div className="bg-orange-200 rounded-full h-2.5 overflow-hidden">
-                      <div
-                        className="bg-orange-600 h-full rounded-full transition-all duration-500"
-                        style={{ width: "70%" }}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Pedidos Recientes */}
-            <div>
-              <h2 className="text-gray-900 text-lg font-bold mb-4">
-                Pedidos Recientes
-              </h2>
-              <div className="space-y-3">
-                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-green-100 rounded-xl p-2.5 flex-shrink-0">
-                      <Package size={20} className="text-green-600" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-gray-900 font-bold text-sm mb-0.5">
-                        Auriculares Bluetooth
-                      </p>
-                      <p className="text-gray-500 text-xs">
-                        #8945 • Entregado el 15 Dic
-                      </p>
-                    </div>
-                    <div className="text-right flex-shrink-0">
-                      <p className="text-gray-900 font-bold text-base mb-1">
-                        $89
-                      </p>
-                      <span className="inline-block bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">
-                        ✓
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-blue-100 rounded-xl p-2.5 flex-shrink-0">
-                      <Package size={20} className="text-blue-600" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-gray-900 font-bold text-sm mb-0.5">
-                        Smartwatch Deportivo
-                      </p>
-                      <p className="text-gray-500 text-xs">
-                        #8946 • En tránsito
-                      </p>
-                    </div>
-                    <div className="text-right flex-shrink-0">
-                      <p className="text-gray-900 font-bold text-base mb-1">
-                        $145
-                      </p>
-                      <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded-full">
-                        🚚
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-green-100 rounded-xl p-2.5 flex-shrink-0">
-                      <Package size={20} className="text-green-600" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-gray-900 font-bold text-sm mb-0.5">
-                        Teclado Mecánico RGB
-                      </p>
-                      <p className="text-gray-500 text-xs">
-                        #8940 • Entregado el 8 Dic
-                      </p>
-                    </div>
-                    <div className="text-right flex-shrink-0">
-                      <p className="text-gray-900 font-bold text-base mb-1">
-                        $120
-                      </p>
-                      <span className="inline-block bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">
-                        ✓
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Información */}
-            <div>
-              <h2 className="text-gray-900 text-lg font-bold mb-4">
-                Mi Información
-              </h2>
-              <div className="space-y-3">
-                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-gray-100 rounded-xl p-2.5">
-                      <Mail size={20} className="text-gray-600" />
-                    </div>
-                    <div>
-                      <p className="text-gray-500 text-xs font-medium mb-0.5">
-                        Email
-                      </p>
-                      <p className="text-gray-900 font-semibold text-sm">
-                        maria.gonzalez@email.com
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-gray-100 rounded-xl p-2.5">
-                      <Phone size={20} className="text-gray-600" />
-                    </div>
-                    <div>
-                      <p className="text-gray-500 text-xs font-medium mb-0.5">
-                        Teléfono
-                      </p>
-                      <p className="text-gray-900 font-semibold text-sm">
-                        +57 312 456 7890
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border-2 border-indigo-200">
-                  <div className="flex items-start gap-3">
-                    <div className="bg-indigo-100 rounded-xl p-2.5 flex-shrink-0">
-                      <MapPin size={20} className="text-indigo-600" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-2">
-                        <p className="text-gray-700 text-xs font-semibold uppercase tracking-wide">
-                          Dirección de envío
-                        </p>
-                        <span className="bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded-full">
-                          ACTIVA
-                        </span>
-                      </div>
-                      <p className="text-gray-900 font-bold text-sm mb-1">
-                        Carrera 15 #85-23, Apto 804
-                      </p>
-                      <p className="text-gray-700 text-sm">
-                        Usaquén, Bogotá D.C.
-                      </p>
-                      <p className="text-gray-600 text-sm">Colombia - 110111</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="border-t border-gray-200 bg-white px-6 py-4 flex items-center justify-center">
-          <button className="w-full bg-red-500 hover:bg-red-600 text-white py-4 rounded-2xl font-bold text-base shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2">
-            <LogOut size={20} />
-            Cerrar Sesión
+          <button className="p-2 hover:bg-slate-100 rounded-xl transition-colors">
+            <X
+              size={20}
+              className="text-slate-500"
+              onClick={() => SetViewLogin(false)}
+            />
           </button>
+        </div>
+
+        {/* Contenido Scrolleable */}
+        <div className="flex-1 overflow-y-auto">
+          {/* Barra de Seguimiento */}
+          <div className="p-4 sm:p-6 bg-gradient-to-r from-slate-50 to-slate-100/50">
+            <div className="flex flex-col sm:flex-row gap-4">
+              {/* En Camino */}
+              <div className="flex-1 bg-white rounded-xl p-4 border border-slate-200 shadow-sm">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2 text-amber-600">
+                    <Truck size={18} />
+                    <span className="font-semibold text-sm">En Camino</span>
+                  </div>
+                  <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full text-xs font-semibold">
+                    2
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
+                    <div className="w-10 h-10 bg-slate-200 rounded-lg flex items-center justify-center">
+                      <ImageIcon size={16} className="text-slate-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-slate-800 text-sm truncate">
+                        MacBook Air M3
+                      </p>
+                      <div className="flex items-center gap-1 text-xs text-slate-500 mt-0.5">
+                        <Timer size={10} />
+                        <span>Llega: 3 Ene</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-end gap-1">
+                      <div className="w-16 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                        <div className="h-full bg-amber-500 rounded-full w-3/4" />
+                      </div>
+                      <span className="text-[10px] text-slate-400">75%</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
+                    <div className="w-10 h-10 bg-slate-200 rounded-lg flex items-center justify-center">
+                      <ImageIcon size={16} className="text-slate-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-slate-800 text-sm truncate">
+                        Logitech MX Master
+                      </p>
+                      <div className="flex items-center gap-1 text-xs text-slate-500 mt-0.5">
+                        <Timer size={10} />
+                        <span>Llega: 6 Ene</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-end gap-1">
+                      <div className="w-16 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                        <div className="h-full bg-amber-500 rounded-full w-1/4" />
+                      </div>
+                      <span className="text-[10px] text-slate-400">25%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Ya Llegaron */}
+              <div className="flex-1 bg-white rounded-xl p-4 border border-slate-200 shadow-sm">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2 text-emerald-600">
+                    <CheckCircle size={18} />
+                    <span className="font-semibold text-sm">Entregados</span>
+                  </div>
+                  <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full text-xs font-semibold">
+                    3
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
+                    <div className="w-10 h-10 bg-slate-200 rounded-lg flex items-center justify-center">
+                      <ImageIcon size={16} className="text-slate-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-slate-800 text-sm truncate">
+                        Sony WH-1000XM5
+                      </p>
+                      <p className="text-xs text-slate-500">18 Dic 2024</p>
+                    </div>
+                    <CheckCircle size={16} className="text-emerald-500" />
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
+                    <div className="w-10 h-10 bg-slate-200 rounded-lg flex items-center justify-center">
+                      <ImageIcon size={16} className="text-slate-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-slate-800 text-sm truncate">
+                        AirPods Pro 2
+                      </p>
+                      <p className="text-xs text-slate-500">2 Dic 2024</p>
+                    </div>
+                    <CheckCircle size={16} className="text-emerald-500" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Historial de Compras */}
+          <div className="p-4 sm:p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-bold text-slate-800">Historial de Compras</h3>
+              <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                Ver todo
+              </button>
+            </div>
+
+            <div className="space-y-3">
+              {/* Compra 1 */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-4 border border-slate-200 rounded-xl hover:border-slate-300 transition-colors">
+                <div className="flex items-center gap-3 flex-1">
+                  <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
+                    <ImageIcon size={20} className="text-slate-400" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="text-xs text-slate-400 font-medium">
+                        TS-2024-001
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-700">
+                        Entregado
+                      </span>
+                    </div>
+                    <p className="font-medium text-slate-800 text-sm truncate">
+                      Sony WH-1000XM5
+                    </p>
+                    <p className="text-xs text-slate-500">15 Dic 2024</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between sm:justify-end gap-3 pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-100">
+                  <span className="font-bold text-slate-800">$399</span>
+                  <div className="flex gap-2">
+                    <button className="p-2 border border-slate-200 hover:border-slate-300 rounded-lg transition-colors">
+                      <Eye size={16} className="text-slate-500" />
+                    </button>
+                    <button className="p-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+                      <RotateCcw size={16} className="text-slate-600" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Compra 2 */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-4 border border-slate-200 rounded-xl hover:border-slate-300 transition-colors">
+                <div className="flex items-center gap-3 flex-1">
+                  <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
+                    <ImageIcon size={20} className="text-slate-400" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="text-xs text-slate-400 font-medium">
+                        TS-2024-002
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-700">
+                        Entregado
+                      </span>
+                    </div>
+                    <p className="font-medium text-slate-800 text-sm truncate">
+                      AirPods Pro 2da Generación
+                    </p>
+                    <p className="text-xs text-slate-500">28 Nov 2024</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between sm:justify-end gap-3 pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-100">
+                  <span className="font-bold text-slate-800">$249</span>
+                  <div className="flex gap-2">
+                    <button className="p-2 border border-slate-200 hover:border-slate-300 rounded-lg transition-colors">
+                      <Eye size={16} className="text-slate-500" />
+                    </button>
+                    <button className="p-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+                      <RotateCcw size={16} className="text-slate-600" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Compra 3 */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-4 border border-slate-200 rounded-xl hover:border-slate-300 transition-colors">
+                <div className="flex items-center gap-3 flex-1">
+                  <div className="flex -space-x-2">
+                    <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center border-2 border-white shadow-sm">
+                      <ImageIcon size={14} className="text-slate-400" />
+                    </div>
+                    <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center border-2 border-white shadow-sm">
+                      <ImageIcon size={14} className="text-slate-400" />
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="text-xs text-slate-400 font-medium">
+                        TS-2024-003
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-700">
+                        Entregado
+                      </span>
+                    </div>
+                    <p className="font-medium text-slate-800 text-sm truncate">
+                      Apple Watch, Bose QC 45
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      10 Oct 2024 • 2 productos
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between sm:justify-end gap-3 pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-100">
+                  <span className="font-bold text-slate-800">$758</span>
+                  <div className="flex gap-2">
+                    <button className="p-2 border border-slate-200 hover:border-slate-300 rounded-lg transition-colors">
+                      <Eye size={16} className="text-slate-500" />
+                    </button>
+                    <button className="p-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+                      <RotateCcw size={16} className="text-slate-600" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Compra 4 */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-4 border border-slate-200 rounded-xl hover:border-slate-300 transition-colors">
+                <div className="flex items-center gap-3 flex-1">
+                  <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
+                    <ImageIcon size={20} className="text-slate-400" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="text-xs text-slate-400 font-medium">
+                        TS-2024-000
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-700">
+                        Entregado
+                      </span>
+                    </div>
+                    <p className="font-medium text-slate-800 text-sm truncate">
+                      iPhone 15 Pro Max 256GB
+                    </p>
+                    <p className="text-xs text-slate-500">5 Sep 2024</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between sm:justify-end gap-3 pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-100">
+                  <span className="font-bold text-slate-800">$1,199</span>
+                  <div className="flex gap-2">
+                    <button className="p-2 border border-slate-200 hover:border-slate-300 rounded-lg transition-colors">
+                      <Eye size={16} className="text-slate-500" />
+                    </button>
+                    <button className="p-2 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+                      <RotateCcw size={16} className="text-slate-600" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer del Panel */}
+        <div className="p-4 sm:p-6 border-t border-slate-100 bg-slate-50">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6">
+            <button className="flex items-center gap-2 px-3 py-2 text-sm text-slate-600 hover:text-slate-800 hover:bg-white rounded-lg transition-colors">
+              <MapPin size={16} />
+              <span className="hidden sm:inline">Direcciones</span>
+            </button>
+            <button className="flex items-center gap-2 px-3 py-2 text-sm text-slate-600 hover:text-slate-800 hover:bg-white rounded-lg transition-colors">
+              <CreditCard size={16} />
+              <span className="hidden sm:inline">Pagos</span>
+            </button>
+            <button className="flex items-center gap-2 px-3 py-2 text-sm text-slate-600 hover:text-slate-800 hover:bg-white rounded-lg transition-colors">
+              <Bell size={16} />
+              <span className="hidden sm:inline">Notificaciones</span>
+            </button>
+            <button className="flex items-center gap-2 px-3 py-2 text-sm text-slate-600 hover:text-slate-800 hover:bg-white rounded-lg transition-colors">
+              <Settings size={16} />
+              <span className="hidden sm:inline">Configuración</span>
+            </button>
+            <button className="flex items-center gap-2 px-3 py-2 text-sm text-red-500 hover:text-red-600 hover:bg-white rounded-lg transition-colors">
+              <LogOut size={16} />
+              <span className="hidden sm:inline">Salir</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
-export default PerfilEcommerce;
