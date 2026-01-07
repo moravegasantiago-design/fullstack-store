@@ -80,7 +80,7 @@ const App = () => {
       await verifyAuth();
     };
     checkAuth();
-  }, []);
+  }, [auth]);
   const loginInteface = auth ? (
     <ProfilePanel
       SetViewLogin={SetViewLogin}

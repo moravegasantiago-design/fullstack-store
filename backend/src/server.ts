@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 import { PORT, SECRET_KEY } from "./secretVariable";
 import {
   bringProducts,
+  bringShopProduct,
   createOrder,
   itemsOrder,
   selectUser,
@@ -94,13 +95,14 @@ app.get("/product", async (req: Request, res: Response) => {
 app.get("/product/shop", async (req: Request, res: Response) => {
   try {
     const token = req.cookies.token;
-    if (!token)
-      return res.status(401).json({ sucess: false, error: "Error en session" });
     const data = jwt.verify(token, SECRET_KEY);
     if (typeof data === "string" || !("id" in data)) return;
+    const dataShop = await bringShopProduct({ id: data.id });
+    if (!dataShop) res.json({ sucess: false, date: null });
+    else res.json({ sucess: true, date: dataShop });
   } catch (error) {
     console.error(error);
-    return res.status(401).json({ sucess: false, error: "Error en conexion" });
+    return res.status(401).json({ sucess: false, error: "Error en session" });
   }
 });
 
@@ -123,6 +125,13 @@ app.post("/checkout", async (req: Request, res: Response) => {
     console.error(err);
     return res.json({ sucess: false, error: "Porfavor inicia sesion" });
   }
+});
+
+app.post("/auth/closet", (req: Request, res: Response) => {
+  res.clearCookie("token", {
+    path: "/",
+  });
+  res.json({ ok: true });
 });
 app.listen(PORT, () => {
   console.log("Iniciando puerto");

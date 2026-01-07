@@ -105,3 +105,29 @@ export const itemsOrder = async (props: {
   }
 };
 
+export const bringShopProduct = async (props: {
+  id: number;
+}): Promise<
+  | {
+      product_id: string;
+      name: string;
+      image: string;
+      quantity: string;
+      price: number;
+      date: string;
+    }[]
+  | null
+> => {
+  try {
+    const { id } = props;
+    const query = `SELECT i.product_id, i.quantity, i.price AS price, o.create_at AS date, p.name AS name, p.image AS image
+    FROM orders_items i JOIN orders o ON o.id = i.orders_id
+    JOIN products p ON p.id = i.product_id WHERE o.user_id=$1`;
+    const data = await pool.query(query, [id]);
+    return data.rows;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
