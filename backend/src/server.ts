@@ -17,7 +17,13 @@ const app = express();
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || ["http://localhost:5173"].includes(origin)) {
+      if (
+        !origin ||
+        [
+          "http://localhost:5173",
+          "https://ecommerce-sencillo.vercel.app",
+        ].includes(origin)
+      ) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));

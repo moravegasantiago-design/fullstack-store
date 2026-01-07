@@ -48,7 +48,9 @@ const App = () => {
   useEffect(() => {
     const dataFetch = async () => {
       try {
-        const re = await fetch("http://localhost:3000/product");
+        const re = await fetch(
+          "https://fullstack-store-qvjr.onrender.com/product"
+        );
         const data = await re.json();
         if (!data.data) return;
         SetProduct(data.data);
@@ -61,7 +63,7 @@ const App = () => {
   }, []);
   const verifyAuth = async () => {
     try {
-      const req = await fetch("http://localhost:3000/me", {
+      const req = await fetch("https://fullstack-store-qvjr.onrender.com/me", {
         method: "GET",
         credentials: "include",
       });

@@ -22,10 +22,13 @@ export const ProfilePanel = (props: propsProfile) => {
   useEffect(() => {
     (async () => {
       try {
-        const req = await fetch("http://localhost:3000/product/shop", {
-          method: "GET",
-          credentials: "include",
-        });
+        const req = await fetch(
+          "https://fullstack-store-qvjr.onrender.com/product/shop",
+          {
+            method: "GET",
+            credentials: "include",
+          }
+        );
         const res = await req.json();
         if (!res.date) return;
         console.log(res.date);
@@ -120,10 +123,13 @@ export const ProfilePanel = (props: propsProfile) => {
             text-red-500 hover:text-red-600 hover:bg-white rounded-lg transition-colors"
               onClick={async () => {
                 try {
-                  const req = await fetch("http://localhost:3000/auth/closet", {
-                    method: "POST",
-                    credentials: "include",
-                  });
+                  const req = await fetch(
+                    "https://fullstack-store-qvjr.onrender.com/auth/closet",
+                    {
+                      method: "POST",
+                      credentials: "include",
+                    }
+                  );
                   const res = await req.json();
                   if (res.ok) return window.location.reload();
                 } catch (error) {

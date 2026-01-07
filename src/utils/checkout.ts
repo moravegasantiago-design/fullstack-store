@@ -35,14 +35,17 @@ export const transactionRequest = async (props: {
 }): Promise<{ sucess: boolean; error: string }> => {
   const { data } = props;
   try {
-    const req = await fetch("http://localhost:3000/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify({
-        products: [...data],
-      }),
-    });
+    const req = await fetch(
+      "https://fullstack-store-qvjr.onrender.com/checkout",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({
+          products: [...data],
+        }),
+      }
+    );
     const res = await req.json();
     if (!res.sucess) return { sucess: false, error: "Datos Invalidos" };
     return { sucess: true, error: "" };

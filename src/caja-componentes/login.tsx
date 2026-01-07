@@ -111,15 +111,18 @@ const FromLogin = (props: {
         });
         if (checker) return;
         try {
-          const res = await fetch("http://localhost:3000/auth/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            credentials: "include",
-            body: JSON.stringify({
-              email: submitLogin.email,
-              password: submitLogin.password,
-            }),
-          });
+          const res = await fetch(
+            "https://fullstack-store-qvjr.onrender.com/auth/login",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              credentials: "include",
+              body: JSON.stringify({
+                email: submitLogin.email,
+                password: submitLogin.password,
+              }),
+            }
+          );
           const status = await res.json();
           if (status.success) {
             SetViewLogin(false);
@@ -268,15 +271,18 @@ export const FormRegister = (props: {
           passwordConfirm: passwordConfirm,
         });
         if (checker) return;
-        const res = await fetch("http://localhost:3000/auth/register", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: submitRegister.name,
-            email: submitRegister.email,
-            password: submitRegister.password,
-          }),
-        });
+        const res = await fetch(
+          "https://fullstack-store-qvjr.onrender.com/auth/register",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: submitRegister.name,
+              email: submitRegister.email,
+              password: submitRegister.password,
+            }),
+          }
+        );
         const req = await res.json();
         const status = res.status;
         if (req.success) SetSystemLogin(false);
