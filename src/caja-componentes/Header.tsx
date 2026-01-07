@@ -48,7 +48,7 @@ const Header = (props: HeaderProps) => {
     const { eventClick, array } = props;
     const cleanedInput = eventClick.trim().toLowerCase();
     const flattenArray = array
-      .flatMap((p) => [...(p.tags ?? []), p.nombre])
+      .flatMap((p) => [...(p.tags ?? []), p.name])
       .filter((p) => p.trim().includes(cleanedInput));
     const filterSearch = flattenArray.reduce<Record<string, number>>(
       (acum, product) => {

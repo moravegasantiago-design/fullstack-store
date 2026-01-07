@@ -47,7 +47,7 @@ export const SearchSystem = (props: searchProps) => {
   const filterSearch = product.filter(
     (p) =>
       p.tags.includes(InputValue.trim().toLowerCase()) ||
-      p.nombre.includes(InputValue.trim().toLowerCase())
+      p.name.includes(InputValue.trim().toLowerCase())
   );
   SetProductFilter(filterSearch);
 };

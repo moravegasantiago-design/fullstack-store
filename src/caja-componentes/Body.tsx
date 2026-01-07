@@ -51,7 +51,7 @@ type NavProps = {
 };
 export const Nav = (props: NavProps) => {
   const { listProduct, SetOption, SetProductFilter } = props;
-  const listCategory = [...new Set(listProduct.flatMap((p) => p.categoria))];
+  const listCategory = [...new Set(listProduct.flatMap((p) => p.category))];
   return (
     <>
       {listCategory.map((p, i) => (
@@ -60,7 +60,9 @@ export const Nav = (props: NavProps) => {
           key={i}
           onClick={() => {
             SetOption(p);
-            const FilterList = listProduct.filter((product) => product.categoria === p);
+            const FilterList = listProduct.filter(
+              (product) => product.category === p
+            );
             SetProductFilter([...FilterList]);
           }}
         >
@@ -73,8 +75,8 @@ export const Nav = (props: NavProps) => {
 
 type ProductProps = {
   listProduct: ProductType[];
-  cartShop : ProductType[];
-  SetCartShop : Dispatch<SetStateAction<ProductType[]>>;
+  cartShop: ProductType[];
+  SetCartShop: Dispatch<SetStateAction<ProductType[]>>;
 };
 export const CardProduct = (props: ProductProps) => {
   const { listProduct, cartShop, SetCartShop } = props;
@@ -83,12 +85,12 @@ export const CardProduct = (props: ProductProps) => {
     return (
       <div
         className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group"
-        key={p.ref}
+        key={p.id}
       >
         <div className="relative aspect-video overflow-hidden bg-gray-100">
           <img
-            src={p.imagen}
-            alt={p.nombre}
+            src={p.image}
+            alt={p.name}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
           <span
@@ -96,7 +98,7 @@ export const CardProduct = (props: ProductProps) => {
               p.precioOriginal ? "block" : "hidden"
             }`}
           >
-            -%{p.descuento ?? 0}
+            -%{p.discount ?? 0}
           </span>
           <button className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-full h-7 w-7 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg">
             <Heart className="h-3 w-3 text-gray-700 hover:text-red-500" />
@@ -105,11 +107,11 @@ export const CardProduct = (props: ProductProps) => {
 
         <div className="p-2.5">
           <p className="text-[9px] text-blue-600 font-semibold uppercase tracking-wider mb-1">
-            {p.categoria}
+            {p.category}
           </p>
 
           <h3 className="font-bold text-xs leading-tight text-gray-900 mb-1.5 line-clamp-2 min-h-[2rem]">
-            {p.nombre}
+            {p.name}
           </h3>
 
           <div className="flex items-center gap-0.5 mb-2">
@@ -125,7 +127,7 @@ export const CardProduct = (props: ProductProps) => {
 
           <div className="flex items-baseline gap-1.5 mb-2.5">
             <span className="text-lg font-bold text-gray-900">
-              {p.precio.toLocaleString()}
+              {p.price.toLocaleString()}
             </span>
             <span
               className={`text-[10px] text-gray-400 line-through ${

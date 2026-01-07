@@ -8,7 +8,7 @@ type CartProps = {
 };
 export const AddCart = (props: CartProps) => {
   const { product, CartShop, SetCartShop } = props;
-  if (CartShop.find((p) => p.ref === product.ref)) return;
+  if (CartShop.find((p) => p.id === product.id)) return;
 
   SetCartShop([...CartShop, { ...product, amount: 1 }]);
 };

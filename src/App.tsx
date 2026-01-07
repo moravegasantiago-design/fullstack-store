@@ -4,20 +4,20 @@ import Footer from "./caja-componentes/Footer";
 import { useEffect, useState } from "react";
 import Login from "./caja-componentes/login";
 import { ProfilePanel } from "./caja-componentes/myProfile";
+import { Checkout } from "./caja-componentes/Checkout";
 
 export type ProductType = {
-  ref: string;
-  nombre: string;
-  precio: number;
+  id: string;
+  name: string;
+  price: number;
   precioOriginal: null | number;
-  descuento: 0 | number;
-  categoria: string;
+  discount: 0 | number;
+  category: string;
   tags: string[];
-  imagen: string;
+  image: string;
   rating: number;
   reviews: number;
   stock: boolean;
-  favorite?: boolean;
   amount?: number;
 };
 export type userProps = {
@@ -29,10 +29,14 @@ export type userProps = {
   cartShop: ProductType[];
 };
 const App = () => {
+  const isCheckout = window.location.pathname === "/checkout";
   const [ProductFilter, SetProductFilter] = useState<ProductType[]>([]);
   const [product, SetProduct] = useState<ProductType[]>([]);
   const [option, SetOption] = useState("");
-  const [cartShop, SetCartShop] = useState<ProductType[]>([]);
+  const [cartShop, SetCartShop] = useState<ProductType[]>(() => {
+    const store = localStorage.getItem("cartShop");
+    return store ? JSON.parse(store) : [];
+  });
   const [viewLogin, SetViewLogin] = useState<boolean>(false);
   const [auth, SetAuth] = useState<boolean>(false);
   const [meProfile, setMeProfile] = useState<userProps>({
@@ -44,10 +48,11 @@ const App = () => {
   useEffect(() => {
     const dataFetch = async () => {
       try {
-        const re = await fetch("data/product.json");
+        const re = await fetch("http://localhost:3000/product");
         const data = await re.json();
-        SetProduct(data);
-        SetProductFilter(data);
+        if (!data.data) return;
+        SetProduct(data.data);
+        SetProductFilter(data.data);
       } catch (err) {
         console.error(err);
       }
@@ -77,12 +82,18 @@ const App = () => {
     checkAuth();
   }, []);
   const loginInteface = auth ? (
-    <ProfilePanel SetViewLogin={SetViewLogin} meProfile={meProfile} />
+    <ProfilePanel
+      SetViewLogin={SetViewLogin}
+      meProfile={meProfile}
+      viewLogin={viewLogin}
+    />
   ) : (
     <Login SetViewLogin={SetViewLogin} SetAuth={SetAuth} />
   );
 
-  return (
+  return isCheckout ? (
+    <Checkout />
+  ) : (
     <>
       <Header
         CartShop={cartShop}
@@ -93,24 +104,33 @@ const App = () => {
         SetViewLogin={SetViewLogin}
       />
       {viewLogin && loginInteface}
-      <Body
-        Title={<Title option={option} />}
-        Nav={
-          <Nav
-            listProduct={product}
-            SetOption={SetOption}
-            SetProductFilter={SetProductFilter}
-            option={option}
-          />
-        }
-        CardProduct={
-          <CardProduct
-            listProduct={ProductFilter}
-            cartShop={cartShop}
-            SetCartShop={SetCartShop}
-          />
-        }
-      />
+      {product.length ? (
+        <Body
+          Title={<Title option={option} />}
+          Nav={
+            <Nav
+              listProduct={product}
+              SetOption={SetOption}
+              SetProductFilter={SetProductFilter}
+              option={option}
+            />
+          }
+          CardProduct={
+            <CardProduct
+              listProduct={ProductFilter}
+              cartShop={cartShop}
+              SetCartShop={SetCartShop}
+            />
+          }
+        />
+      ) : (
+        <div className="flex flex-col items-center justify-center py-12 gap-3">
+          <div className="w-10 h-10 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin" />
+          <p className="text-blue-600 text-sm font-medium">
+            Cargando productos...
+          </p>
+        </div>
+      )}
       <Footer />
     </>
   );

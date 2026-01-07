@@ -72,20 +72,20 @@ export const bringProducts = async (): Promise<ProductType[] | null> => {
 
 export const createOrder = async (props: {
   userId: number;
-}): Promise<{ id: number } | null> => {
+}): Promise<number | undefined> => {
   const { userId } = props;
   try {
-    const query = "INSERT INTO orders(name) VALUES($1) RETURING id";
+    const query = "INSERT INTO orders(user_id) VALUES($1) RETURNING id";
     const req = await pool.query<{ id: number }>(query, [userId]);
-    return req.rows[0];
+    return req.rows[0].id;
   } catch (err) {
     console.error(err);
-    return null;
+    return;
   }
 };
 type itemsProps = {
-  idProduct: number;
-  quality: number;
+  id: string;
+  amount: number;
   price: number;
 };
 export const itemsOrder = async (props: {
@@ -94,9 +94,9 @@ export const itemsOrder = async (props: {
 }): Promise<boolean> => {
   try {
     const { orderId, items } = props;
-    const query = `INSERT INTO orders_items (orders_id, product_id, quality, price)
+    const query = `INSERT INTO orders_items (orders_id, product_id, quantity, price)
       VALUES ($1, $2, $3, $4)`;
-    const values = [orderId, items.idProduct, items.quality, items.price];
+    const values = [orderId, items.id, items.amount, items.price];
     await pool.query(query, values);
     return true;
   } catch (err) {
@@ -104,3 +104,4 @@ export const itemsOrder = async (props: {
     return false;
   }
 };
+

@@ -5,7 +5,13 @@ import cookieParser from "cookie-parser";
 import { createToken } from "./cookieSystem";
 import jwt from "jsonwebtoken";
 import { PORT, SECRET_KEY } from "./secretVariable";
-import { selectUser, userInsert } from "./bd";
+import {
+  bringProducts,
+  createOrder,
+  itemsOrder,
+  selectUser,
+  userInsert,
+} from "./bd";
 const app = express();
 app.use(
   cors({
@@ -73,6 +79,49 @@ app.get("/me", (req: Request, res: Response) => {
   } catch (err) {
     console.error(err);
     res.status(401).json({ success: false, error: "Token invalido" });
+  }
+});
+app.get("/product", async (req: Request, res: Response) => {
+  try {
+    const resp = await bringProducts();
+    res.json({ data: resp });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Ocurrio un error inesperado" });
+  }
+});
+
+app.get("/product/shop", async (req: Request, res: Response) => {
+  try {
+    const token = req.cookies.token;
+    if (!token)
+      return res.status(401).json({ sucess: false, error: "Error en session" });
+    const data = jwt.verify(token, SECRET_KEY);
+    if (typeof data === "string" || !("id" in data)) return;
+  } catch (error) {
+    console.error(error);
+    return res.status(401).json({ sucess: false, error: "Error en conexion" });
+  }
+});
+
+app.post("/checkout", async (req: Request, res: Response) => {
+  try {
+    const product = req.body.products;
+    const token = req.cookies.token;
+    const data = jwt.verify(token, SECRET_KEY);
+    if (typeof data === "string" || !("id" in data))
+      return res.status(401).json({ sucess: false, error: "Token invalido" });
+    const orderId = await createOrder({ userId: data.id });
+    if (!orderId)
+      return res.status(401).json({ sucess: false, error: "Orden no creada" });
+    let isOrden: boolean = false;
+    for (const p of product) {
+      isOrden = await itemsOrder({ orderId: orderId, items: p });
+    }
+    return res.status(200).json({ sucess: isOrden });
+  } catch (err) {
+    console.error(err);
+    return res.json({ sucess: false, error: "Porfavor inicia sesion" });
   }
 });
 app.listen(PORT, () => {

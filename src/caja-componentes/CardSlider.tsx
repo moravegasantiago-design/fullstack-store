@@ -1,4 +1,9 @@
-import type { Dispatch, ReactNode, SetStateAction } from "react";
+import {
+  useEffect,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+} from "react";
 import { type ProductType } from "@/App";
 
 type CardSliderProps = {
@@ -72,7 +77,7 @@ export const CardItemsCart = (props: CartItems) => {
   }) => {
     const { array, obj, operator } = props;
     return array.map((p) => {
-      if (p.ref !== obj.ref) return p;
+      if (p.id !== obj.id) return p;
       return {
         ...p,
         amount: p.amount ? p.amount + operator : 1,
@@ -110,18 +115,18 @@ export const CardItemsCart = (props: CartItems) => {
   const product = (obj: ProductType) => (
     <div
       className="flex gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
-      key={obj.ref}
+      key={obj.id}
     >
       <img
-        src={obj.imagen}
-        alt={obj.nombre}
+        src={obj.image}
+        alt={obj.name}
         className="w-20 h-20 object-cover rounded-lg"
       />
       <div className="flex-1">
         <h3 className="font-semibold text-sm text-gray-900 line-clamp-2 mb-1">
-          {obj.nombre}
+          {obj.name}
         </h3>
-        <p className="text-xs text-gray-500 mb-2">{obj.categoria}</p>
+        <p className="text-xs text-gray-500 mb-2">{obj.category}</p>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-200">
             <button
@@ -154,16 +159,16 @@ export const CardItemsCart = (props: CartItems) => {
             </button>
           </div>
           <span className="font-bold text-gray-900">
-            ${obj.amount ? (obj.precio * obj.amount).toLocaleString() : 1}
+            ${obj.amount ? (obj.price * obj.amount).toLocaleString() : 1}
           </span>
         </div>
       </div>
       <button
         className="self-start p-1 hover:bg-red-50 rounded-full transition-colors"
         onClick={() => {
-          const index = CartShop.findIndex((p) => p.ref === obj.ref);
+          const index = CartShop.findIndex((p) => p.id === obj.id);
           if (index === -1) return;
-          SetCartShop((items) => items.filter((p) => p.ref !== obj.ref));
+          SetCartShop((items) => items.filter((p) => p.id !== obj.id));
         }}
       >
         <svg
@@ -190,9 +195,12 @@ type CartFooter = {
 };
 export const CardFooterCart = (props: CartFooter) => {
   const { CartShop } = props;
+  useEffect(() => {
+    localStorage.setItem("cartShop", JSON.stringify(CartShop));
+  }, [CartShop]);
   const subTotal = CartShop.reduce((acum, product) => {
     return (
-      (product.amount ? product.precio * product.amount : product.precio) + acum
+      (product.amount ? product.price * product.amount : product.price) + acum
     );
   }, 0);
   return (
@@ -203,7 +211,17 @@ export const CardFooterCart = (props: CartFooter) => {
           ${CartShop.length ? subTotal.toLocaleString() : 0}
         </span>
       </div>
-      <button className="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl">
+      <button
+        className={`w-full py-4 bg-gradient-to-r 
+        from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-xl 
+        transition-all shadow-lg hover:shadow-xl ${
+          CartShop.length === 0 && "opacity-60"
+        }`}
+        disabled={CartShop.length === 0}
+        onClick={() => {
+          window.location.href = "/checkout";
+        }}
+      >
         Proceder al Pago
       </button>
     </>
