@@ -19,9 +19,9 @@ export const createToken = (props: createProps) => {
   res.cookie("token", token, {
     //proteccion para que frontend pueda acceder a cookies
     httpOnly: true,
-    secure: false,
+    secure: true,
     // false: HTTP, true: solo HTTPS
-    sameSite: "lax",
+    sameSite: "none",
     // Protege contra CSRF, permite navegación normal
     maxAge: 24 * 60 * 60 * 1000,
     // Expira en 24 horas (milisegundos)
