@@ -100,7 +100,7 @@ export const itemsOrder = async (props: {
     await pool.query(query, values);
     return true;
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return false;
   }
 };

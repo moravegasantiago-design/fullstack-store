@@ -31,7 +31,6 @@ export const ProfilePanel = (props: propsProfile) => {
         );
         const res = await req.json();
         if (!res.date) return;
-        console.log(res.date);
         setHistoryShop(res.date);
       } catch (error) {
         console.error(error);
