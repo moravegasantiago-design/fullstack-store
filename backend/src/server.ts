@@ -135,6 +135,9 @@ app.post("/checkout", async (req: Request, res: Response) => {
 
 app.post("/auth/closet", (req: Request, res: Response) => {
   res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
     path: "/",
   });
   res.json({ ok: true });
